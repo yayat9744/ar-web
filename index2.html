@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <style>
+body {
+  font-family: Arial;
+  color: white;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  width: 80%;
+}
+
+.right {
+  right: 0;
+  width: 20%;
+  background-color: blue;
+}
+
+/* .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+} */
+</style>
+  <body style="margin : 0px; overflow: hidden;">
+    
+    <!-- <div class="split left"> -->
+    <a-scene embedded arjs>
+      <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+    <button>
+        HIDE OBJECTS
+    </button >
+    <h1 id="demo" onclick="myFunction()">jdfhkjsdhf</h1>
+</div>
+      <a-marker preset="hiro">
+        <!-- <div class="split left">  -->
+          <a-entity
+          position="0 0 0"
+          scale="0.05 0.05 0.05"
+          gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+        ></a-entity>
+      <!-- </div> -->
+        <!-- <div class="split right"></div> -->
+       
+      </a-marker>
+       <a-marker preset="pattern" type="pattern" url="pattern-marker.patt">
+        <a-entity
+          position="0 0 0"
+          scale="0.05 0.05 0.05"
+          gltf-model="coklat-big.glb"
+        ></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+<!-- </div> -->
+
+<!-- <div class="split right">
+    <h2>Mariane Tyler</h2>
+    <p>Hi, aku mariane tyler.</p>
+</div> -->
+    
+  </body>
+</html>
+<!-- document.querySelector("button").addEventListener("click", (e)=> {
+  // do stuff here.
+}) -->
+<script>
+function myFunction() {
+  document.getElementById("demo").style.color = "red";
+}
+</script>
+
+
+
+
+
+
+<!-- 2 -->
+<!DOCTYPE html>
+<html>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
+
+<script>
+//   window.addEventListener('load', () => {
+//     const camera = document.querySelector('[camera]');
+//     const marker = document.querySelector('a-marker');
+//     let check;
+
+//     marker.addEventListener('markerFound', () => {
+//         let cameraPosition = camera.object3D.position;
+//         let markerPosition = marker.object3D.position;
+//         let distance = cameraPosition.distanceTo(markerPosition)
+
+//         check = setInterval(() => {
+//             cameraPosition = camera.object3D.position;
+//             markerPosition = marker.object3D.position;
+//             distance = cameraPosition.distanceTo(markerPosition)
+
+//             // do what you want with the distance:
+//             console.log(distance);
+//         }, 100);
+//     });
+
+//     marker.addEventListener('markerLost', () => {
+//       clearInterval(check);
+//     })
+// })
+  AFRAME.registerComponent('markerhandler', {
+    init: function () {
+      this.el.sceneEl.addEventListener('markerFound', () => {
+        // redirect to custom URL e.g. google.com
+        // window.location = 'https://www.google.com/';
+        // alert("Hi there!");
+        document.getElementById("demo").value = "red";
+      })
+    }
+  });
+</script>
+
+<body style="margin : 0px; overflow: hidden;">
+  <!-- <a-scene embedded arjs>
+<h1 id="demo">jdfhkjsdhf</h1>
+    <a-marker preset="hiro" markerhandler>
+        <a-box position='0 0.5 0' color="yellow"></a-box>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene> -->
+  <a-scene embedded arjs>
+      <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+    <button>
+        HIDE OBJECTS
+    </button >
+    <!-- <h1 id="demo">fksjdfkds</h1> -->
+    <input type="text" id="demo">
+</div>
+      <a-marker preset="hiro" markerhandler>
+        <!-- <div class="split left">  -->
+          <a-entity
+          position="0 0 0"
+          scale="0.05 0.05 0.05"
+          gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+        ></a-entity>
+      <!-- </div> -->
+        <!-- <div class="split right"></div> -->
+       
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
